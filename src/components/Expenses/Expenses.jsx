@@ -1,18 +1,25 @@
-import React from 'react'
+import React, { useState } from "react";
 
-import './Expenses.css'
+import "./Expenses.css";
 
-import ExpenseItem from './ExpenseItem'
-import Card from '../UI/Card'
+import ExpensesFilter from "./ExpensesFilter";
+
+import ExpenseItem from "./ExpenseItem";
+import Card from "../UI/Card";
 
 const Expenses = (props) => {
+  const [year, setYear] = useState("");
+  console.log(year);
   return (
-    <Card className="expenses">
-      {props.expenses.map((expense) => (
-        <ExpenseItem key={expense.id} {...expense} />
-      ))}
-    </Card>
-  )
-}
+    <>
+      <ExpensesFilter setYear={setYear} />
+      <Card className="expenses">
+        {props.expenses.map((expense) => (
+          <ExpenseItem key={expense.id} {...expense} />
+        ))}
+      </Card>
+    </>
+  );
+};
 
-export default Expenses
+export default Expenses;
