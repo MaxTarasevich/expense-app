@@ -5,24 +5,24 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
   const [enteredExpenseData, setEnteredExpenseData] = useState({
     title: '',
     amount: '',
-    date: '',
+    date: '2023-01-11',
   })
 
   const onChangeHandler = (e) => {
     const { name, value } = e.target
     setEnteredExpenseData((prevEnteredExpenseData) => {
-      if (name === 'date') {
-        return { ...prevEnteredExpenseData, [name]: new Date(value) }
-      }
       return { ...prevEnteredExpenseData, [name]: value }
     })
-    console.log(enteredExpenseData)
   }
 
   const submitHandler = (e) => {
     e.preventDefault()
-    console.log(enteredExpenseData)
     onSaveExpenseData(enteredExpenseData)
+    setEnteredExpenseData({
+      title: '',
+      amount: '',
+      date: '2023-01-11',
+    })
   }
   return (
     <form onSubmit={submitHandler}>

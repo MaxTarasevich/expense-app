@@ -28,10 +28,10 @@ function App() {
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES)
 
   const addExpenseHandler = (expense) => {
+    expense.date = new Date(expense.date)
     setExpenses((prevExpenses) => {
       return [expense, ...prevExpenses]
     })
-    console.log(expense.date, 'from app')
   }
   return (
     <div>
