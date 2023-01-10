@@ -5,7 +5,7 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
   const [enteredExpenseData, setEnteredExpenseData] = useState({
     title: '',
     amount: '',
-    date: '2023-01-11',
+    date: '',
   })
 
   const onChangeHandler = (e) => {
@@ -21,7 +21,7 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
     setEnteredExpenseData({
       title: '',
       amount: '',
-      date: '2023-01-11',
+      date: '',
     })
   }
   return (
